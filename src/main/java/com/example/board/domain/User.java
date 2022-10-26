@@ -1,4 +1,4 @@
-package com.example.board.entitiy;
+package com.example.board.domain;
 
 import lombok.*;
 
@@ -8,8 +8,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Builder
 @Getter
-@Entity(name = "user")
-public class User {
+@Entity
+public class User extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
