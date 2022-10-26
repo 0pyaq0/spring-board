@@ -1,4 +1,4 @@
-package com.example.board.infrastructure.persistance;
+package com.example.board.infrastructure.persistence;
 
 import com.example.board.domain.Posts;
 import lombok.extern.log4j.Log4j2;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 @Log4j2
@@ -24,15 +24,19 @@ class PostsRepositoryTest {
     }
 
     @Test
-    public void createPostsAndGetPosts(){
-        Posts posts = Posts.builder()
-                .title("제목")
-                .content("내용")
-                .writer("작성자")
-                .build();
-        postsRepository.save(posts);
+    public void 게시글_생성_가져오기() {
+        String title = "제목 입니다.";
+        String content = "내용 입니다";
+
+        postsRepository.save(Posts.builder().title(title).content(content).writer("coco").build());
 
         List<Posts> postsList = postsRepository.findAll();
-        log.info(postsList.get(0));
+
+        Posts posts = postsList.get(0);
+
+        assertThat(posts.getTitle()).isEqualTo(title);
+        assertThat(posts.getContent()).isEqualTo(content);
+
+        log.info(posts);
     }
 }

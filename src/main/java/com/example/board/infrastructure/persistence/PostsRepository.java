@@ -1,4 +1,4 @@
-package com.example.board.infrastructure.persistance;
+package com.example.board.infrastructure.persistence;
 
 import com.example.board.domain.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
