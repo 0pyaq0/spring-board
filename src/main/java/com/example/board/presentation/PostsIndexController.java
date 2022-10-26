@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * 화면 연결 Controller
  */
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class PostsIndexController {
@@ -20,8 +21,8 @@ public class PostsIndexController {
         return "index";
     }
 
-    @GetMapping("/posts/register")
+    @GetMapping("/posts/write")
     public String register() {
-        return "posts-register";
+        return "posts-write";
     }
 }

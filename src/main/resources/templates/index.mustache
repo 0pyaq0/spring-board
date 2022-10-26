@@ -1,43 +1,30 @@
 {{>layout/header}}
 
-
-<table id="table" class="table table-horizontal">
-    <thead class="thead-strong">
-    <tr>
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>등록일</th>
-        <th>조회수</th>
-    </tr>
-    </thead>
-    <tbody id="tbody">
-    <tr>
-        <td>1</td>
-        <td>제목 입니다.</td>
-        <td>심이진</td>
-        <td>2022-10-26</td>
-        <td>0</td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>2제목 입니다.</td>
-        <td>심이진</td>
-        <td>2022-10-26</td>
-        <td>0</td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>3제목 입니다.</td>
-        <td>심이진</td>
-        <td>2022-10-26</td>
-        <td>0</td>
-    </tr>
-    </tbody>
-</table>
-<div class="col-md-12">
-    <a href="/posts/register" id ="btn" role="button" class="btn btn-primary bi bi-pencil-fill float-right"> 글쓰기</a>
+<div id="posts_list">
+    <table id="table" class="table table-horizontal">
+        <thead id="thead">
+        <tr>
+            <th>번호</th>
+            <th class="col-md-6 text-center">제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="/posts/read/{{id}}">{{title}}</a></td>
+                <td>{{writer}}</td>
+                <td>{{createdDate}}</td>
+                <td>{{view}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+    <div class="text-right">
+        <a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill"> 글쓰기</a>
+    </div>
 </div>
 {{>layout/footer}}
