@@ -23,7 +23,7 @@ public class Comment{
     private Long id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String comment;
+    private String comment; // 댓글 내용
 
     @Column(name = "created_date")
     @CreatedDate
@@ -34,6 +34,10 @@ public class Comment{
     private String modifiedDate;
 
     @ManyToOne
+    @JoinColumn(name = "posts_id")
+    private Posts posts;
+
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user; // 작성자
 }
