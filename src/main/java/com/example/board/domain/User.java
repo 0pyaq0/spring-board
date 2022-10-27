@@ -32,4 +32,10 @@ public class User extends BaseTimeEntity{
     @Column(nullable = false)
     private Role role;
 
+    /* 회원정보 수정 */
+    public void modify(String nickname, String password) {
+        this.nickname = nickname;
+        this.password = password;
+    }
+
 }
