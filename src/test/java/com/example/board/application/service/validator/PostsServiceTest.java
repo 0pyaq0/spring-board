@@ -1,6 +1,7 @@
-package com.example.board.application.validator;
+package com.example.board.application.service.validator;
 
 import com.example.board.application.dto.PostsDto;
+import com.example.board.application.service.PostsService;
 import com.example.board.domain.Role;
 import com.example.board.domain.User;
 import com.example.board.infrastructure.persistence.PostsRepository;
@@ -10,8 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Slf4j
