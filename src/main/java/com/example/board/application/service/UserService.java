@@ -1,4 +1,4 @@
-package com.example.board.application.validator;
+package com.example.board.application.service;
 
 import com.example.board.application.dto.UserDto;
 import com.example.board.domain.User;

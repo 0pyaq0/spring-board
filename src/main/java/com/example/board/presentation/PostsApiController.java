@@ -3,7 +3,7 @@ package com.example.board.presentation;
 import com.example.board.application.dto.PostsDto;
 import com.example.board.application.dto.UserDto;
 import com.example.board.application.security.auth.LoginUser;
-import com.example.board.application.service.validator.PostsService;
+import com.example.board.application.service.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
