@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 public class CommentService {
 
     private final CommentRepository commentRepository;
-    private final PostsRepository postsRepository;
     private final UserRepository userRepository;
+    private final PostsRepository postsRepository;
 
     /* CREATE */
     @Transactional
@@ -42,8 +42,7 @@ public class CommentService {
     @Transactional(readOnly = true)
     public List<CommentDto.Response> findAll(Long id) {
         Posts posts = postsRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id : " + id));
-
+                new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id: " + id));
         List<Comment> comments = posts.getComments();
         return comments.stream().map(CommentDto.Response::new).collect(Collectors.toList());
     }
@@ -61,7 +60,7 @@ public class CommentService {
     @Transactional
     public void delete(Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("해당 댓글이 존재하지 않습니다. id = " + id));
+                new IllegalArgumentException("해당 댓글이 존재하지 않습니다. id=" + id));
 
         commentRepository.delete(comment);
     }
