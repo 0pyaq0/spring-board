@@ -4,7 +4,6 @@ import com.example.board.domain.Posts;
 import com.example.board.domain.User;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -11,24 +11,26 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
-/* Security User Service */
+/**
+ * Security User Service
+ */
 @RequiredArgsConstructor
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    private final HttpSession httpSession;
+    private final HttpSession session;
 
-    /* username이 DB에 있는 지 확인 */
+    /* username이 DB에 있는지 확인 */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username).orElseThrow(() ->
                 new UsernameNotFoundException("해당 사용자가 존재하지 않습니다. : " + username));
 
-        httpSession.setAttribute("user", new UserDto.Response(user));
+        session.setAttribute("user", new UserDto.Response(user));
 
-        /* security session에 유저 정보 저장 */
+        /* 시큐리티 세션에 유저 정보 저장 */
         return new CustomUserDetails(user);
     }
 }
