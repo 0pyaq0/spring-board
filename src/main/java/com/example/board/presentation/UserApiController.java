@@ -1,9 +1,8 @@
 package com.example.board.presentation;
 
 import com.example.board.application.dto.UserDto;
-import com.example.board.application.validator.UserService;
+import com.example.board.application.service.validator.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -4,7 +4,7 @@ import com.example.board.application.dto.CommentDto;
 import com.example.board.application.dto.PostsDto;
 import com.example.board.application.dto.UserDto;
 import com.example.board.application.security.auth.LoginUser;
-import com.example.board.application.validator.PostsService;
+import com.example.board.application.service.validator.PostsService;
 import com.example.board.domain.Posts;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

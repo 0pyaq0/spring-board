@@ -2,7 +2,8 @@ package com.example.board.presentation;
 
 import com.example.board.application.dto.UserDto;
 import com.example.board.application.security.auth.LoginUser;
-import com.example.board.application.validator.UserService;
+import com.example.board.application.service.UserService;
+import com.example.board.application.validator.CustomValidators;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,7 +11,9 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,6 +30,18 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
+
+    private final CustomValidators.EmailValidator EmailValidator;
+    private final CustomValidators.NicknameValidator NicknameValidator;
+    private final CustomValidators.UsernameValidator UsernameValidator;
+
+    /* 커스텀 유효성 검증을 위해 추가 */
+    @InitBinder
+    public void validatorBinder(WebDataBinder binder) {
+        binder.addValidators(EmailValidator);
+        binder.addValidators(NicknameValidator);
+        binder.addValidators(UsernameValidator);
+    }
 
     @GetMapping("/auth/join")
     public String join() {
