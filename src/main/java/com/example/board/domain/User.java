@@ -16,13 +16,13 @@ public class User extends BaseTimeEntity{
     private Long id;
 
     //columnDefinition = "varchar2(15 char)" 써보기
-    @Column(nullable = false, length = 15, unique = true)
+    @Column(nullable = false, length = 150, unique = true)
     private String username;
 
     @Column(length = 60)
     private String password;
 
-    @Column(nullable = false, length = 15, unique = true)
+    @Column(nullable = false, length = 50, unique = true)
     private String nickname;
 
     @Column(nullable = false, length = 64, unique = true)
